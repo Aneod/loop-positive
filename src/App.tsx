@@ -1,96 +1,137 @@
 import './App.css';
-import Menu from './features/menu/Menu';
 import { useState } from 'react';
-import Program from './features/program/Program';
-import Library from './features/library/library';
-import Stopwatch from './features/stopwatch/Stopwatch';
 import BackArrow from './back-arrow.png'
+import House from './house.png'
+import imgTest from './imgTest.webp'
 
 function App() {
 
-  const [page, setPage] = useState('Menu')
+  const [lastPage, setLastPage] = useState(() => () => console.log())
+  const [pageColor, setPageColor] = useState('')
+  const [pageTitle, setPageTitle] = useState('')
+  const [sideText, setSideText] = useState('')
+  const [pageContent, setPageContent] = useState(<div/>)
 
-  const modifiePageColor = () => {
-    switch (page) {
-      case 'Menu':
-        return 'white' 
+  const Menu = () => setPage(
+    () => Menu,
+    'Menu',
+    'Loop Positive by Blys',
+    'white',
+    <div>
+      <button onClick={() => ProgramMenu()}>Program</button>
+      <button onClick={() => LibraryMenu()}>Library</button>
+      <button onClick={() => StopwatchMenu()}>Stopwatch</button>
+    </div>
+  )
 
-      case 'Program':
-        return 'red'
+  const ProgramMenu = () => setPage(
+    () => Menu,
+    'Program',
+    'Make your dream body',
+    'red',
+    <div>
 
-      case 'Library':
-        return 'blue'
+    </div>
+  )
 
-      case 'Stopwatch':
-        return 'orange'
+  const LibraryMenu = () => setPage(
+    () => Menu,
+    'Library',
+    'See all exercices',
+    'blue',
+    <div>
+      <button onClick={() => PectorauxMenu()}>Pectoraux</button>
+    </div>
+  )
 
-      default:
-        return 'white'
-    }
+  const PectorauxMenu = () => setPage(
+    () => LibraryMenu,
+    'Library',
+    'See all exercices',
+    'blue',
+    <div>
+      <button onClick={() => DeveloppeVariantes()}>Variantes du développé</button>
+      <button onClick={() => PompesVariantes()}>Variantes des pompes</button>
+    </div>
+  )
+
+  const DeveloppeVariantes = () => setPage(
+    () => PectorauxMenu,
+    'Library',
+    'See all exercices',
+    'blue',
+    <div>
+      <button onClick={() => DeveloppeCouche()}>Développé couché</button>
+    </div>
+  )
+
+  const DeveloppeCouche = () => setPage(
+    () => DeveloppeVariantes,
+    'Library',
+    'See all exercices',
+    'blue',
+    <div>
+      <h1>Développé couché</h1>
+      <p>Ceci est l'exercice de musculation le plus célèbre et pourtant j'y suis très mauvais.</p>
+      <img src={imgTest} alt="Illustration"/>
+      <p>Point important:</p>
+      <br />
+      <ol>
+        <li>Bras à 30°, pas à l'horizontal</li>
+        <li>Garder les bras à largeur d'épaules</li>
+        <li>Omoplates collées</li>
+      </ol>
+
+      <br />
+    </div>
+  )
+
+  const PompesVariantes = () => setPage(
+    () => PectorauxMenu,
+    'Library',
+    'See all exercices',
+    'blue',
+    <div>
+
+    </div>
+  )
+
+  const StopwatchMenu = () => setPage(
+    () => Menu,
+    'Stopwatch',
+    'Timee to gym',
+    'orange',
+    <div>
+      
+    </div>
+  )
+
+  const setPage = (lastPag: () => void, title: string, sideText: string, color: string, JSX: JSX.Element) => {
+    setLastPage(lastPag)
+    setPageTitle(title)
+    setSideText(sideText)
+    setPageColor(color)
+    setPageContent(JSX)
   }
 
-  const modifiePageTitle = () => {
-    switch (page) {
-      case 'Menu': return 'Loop Positive by Blys'
-      case 'Program': return 'Create your program'
-      case 'Library': return 'See all exercices'
-      case 'Stopwatch': return 'Time to gym'
-      default: return 'white'
-    }
-  }
-
-  const whichPage = () => {
-    switch (page) {
-      case 'Menu':
-        return <Menu
-            clickProgram = {() => setPage('Program')}
-            clickLibrary = {() => setPage('Library')}
-            clickStopwatch = {() => setPage('Stopwatch')}
-          />
-
-      case 'Program':
-        return <Program/>
-
-      case 'Library':
-        return <Library/>
-
-      case 'Stopwatch':
-        return <Stopwatch/>
-
-      default:
-        return <Menu
-            clickProgram = {() => setPage('blue')}
-            clickLibrary = {() => setPage('green')}
-            clickStopwatch = {() => setPage('orange')}
-          />
-    }
-  }
+  if(!pageColor) Menu()
   
   return (
-    
     <div className="App">
-      <div className='leftSide'>
-        <div className='topLeftSide' style={{backgroundColor: modifiePageColor()}}></div>
-        <div className='BottomLeftSide'>
-          <h2>{modifiePageTitle()}</h2>
-        </div>
-      </div>
-
-      <div className='rightSide'>
-      <div className='topRightSide'>
-        <h1>{page}</h1>
-      </div>
-      <div className='BottomRightSide'>
-        <div className='menuAndTitle'>
-          <button className='buttonMenu'onClick={() => setPage('Menu')}>
+      <div className='colorContainer' style={{backgroundColor: pageColor}}></div>
+      <div className='titleContainer'><h1>{pageTitle}</h1></div>
+      <div className='textContainer'><h2>{sideText}</h2></div>
+      <div className='contentContainer'>
+        <div className='backer'>
+          <button className='buttonBacker' onClick={() => lastPage()}>
             <img src={BackArrow} alt="Retour"/>
           </button>
           <h2>Loop Positive<br/>by Blys Boutique</h2>
+          <button className='buttonBacker buttonMenu' onClick={() => Menu()}>
+            <img src={House} alt="Menu"/>
+          </button>
         </div>
-        <div className='page'>
-          {whichPage()}
-        </div>
-      </div>
+        <div className='content'>{pageContent}</div>
       </div>
     </div>
   );

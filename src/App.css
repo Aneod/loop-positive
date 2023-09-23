@@ -2,28 +2,42 @@
 
 .App{
     height: 100vh;
-
     display: flex;
+    flex-wrap: wrap;
 }
 
-.leftSide{
+.colorContainer{
     width: 15vw;
-    height: 100vh;
-}
-
-.topLeftSide{
     height: 15vw;
     border-right: 1px black solid;
     border-bottom: 1px black solid;
 }
 
-.BottomLeftSide{
-    height: calc(100% - 15vw - 1px);
+.titleContainer{
+    width: calc(100vw - 15vw - 1px);
+    height: 15vw;
+    border-bottom: 1px black solid;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.titleContainer h1{
+    font-size: 52px;
+    font-family: 'Martian Mono', monospace;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.textContainer{
+    width: 15vw;
+    height: calc(100vh - 15vw - 1px);
     border-right: 1px black solid;
     overflow: hidden;
 }
 
-.BottomLeftSide h2{
+.textContainer h2{
     position: absolute;
     left: 0;
     bottom: 0;
@@ -38,47 +52,25 @@
     font-weight: 900;
 }
 
-.rightSide{
-    width: 85vw;
-    height: 100vh;
+.contentContainer{
+    width: calc(100vw - 15vw - 1px);
+    height: calc(100vh - 15vw - 1px);
 }
 
-.topRightSide{
-    height: 15vw;
-    border-bottom: 1px black solid;
-    overflow: hidden;
-
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
-h1{
-    font-size: 52px;
-    font-family: 'Martian Mono', monospace;
-}
-
-.topRightSide h1{
-    margin: 0;
-    margin-right: 10px;
-}
-
-.BottomRightSide{
-    height: calc(100% - 15vw - 1px);
-}
-
-.menuAndTitle{
+.backer{
     height: calc(15vw - 30px) ;
 
     display: flex;
     gap: 15px;
     border-bottom: 1px black solid;
     padding: 15px;
+    position: relative;
 }
 
-.buttonMenu{
+.backer .buttonBacker{
     width: calc(15vw * .7);
     height: calc(15vw * .7);
+    background-color: white;
     border: 1px solid black;
     min-height: calc(15vw * .7);
 
@@ -87,16 +79,70 @@ h1{
     align-items: center;
 }
 
-.buttonMenu img{
+.backer .buttonMenu{
+    position: absolute;
+    right: 15px;
+}
+
+.backer .buttonBacker img{
     height: 80%;
 }
 
-h2{
+.backer h2{
     font-size: 20px;
     font-family: 'Martian Mono', monospace;
     font-weight: 200;
 }
 
-.page{
+.content{
     height: calc(100% - 15vw - 1px);
+    overflow: scroll;
+}
+
+.content *{
+    padding: 0;
+    margin: 0;
+}
+
+.content button{
+    width: 100%;
+    min-height: 20vw;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+
+    font-size: 42px;
+    font-family: 'Martian Mono', monospace;
+    font-weight: 200;
+}
+
+.content h1{
+    max-width: calc(100% - 30px);
+    margin: 35px 0px 45px 0px;
+    font-size: 56px;
+    margin-left: 15px;
+    font-family: 'Martian Mono', monospace;
+    font-weight: 200;
+}
+
+.content p{
+    max-width: calc(100% - 30px);
+    font-size: 20px;
+    margin-left: 15px;
+    font-family: 'Martian Mono', monospace;
+    font-weight: 200;
+}
+
+.content li{
+    max-width: calc(100% - 30px);
+    font-size: 20px;
+    margin-left: 55px;
+    font-family: 'Martian Mono', monospace;
+    font-weight: 200;
+}
+
+.content img{
+    max-width: calc(100% - 30px);
+    margin: 25px 0px 25px 15px;
+    border: black solid 1px;
 }
