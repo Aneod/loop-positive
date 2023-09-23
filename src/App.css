@@ -35,6 +35,7 @@
     margin-bottom: 15px;
     font-size: 56px;
     font-family: 'Martian Mono', monospace;
+    font-weight: 900;
 }
 
 .rightSide{
@@ -54,6 +55,7 @@
 
 h1{
     font-size: 52px;
+    font-family: 'Martian Mono', monospace;
 }
 
 .topRightSide h1{
@@ -92,6 +94,7 @@ h1{
 h2{
     font-size: 20px;
     font-family: 'Martian Mono', monospace;
+    font-weight: 200;
 }
 
 .page{
