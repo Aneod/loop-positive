@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;600&display=swap');
+
+.App{
+    height: 100vh;
+
+    display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.leftSide{
+    width: 15vw;
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.topLeftSide{
+    height: 15vw;
+    border-right: 1px black solid;
+    border-bottom: 1px black solid;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.BottomLeftSide{
+    height: calc(100% - 15vw - 1px);
+    border-right: 1px black solid;
+    overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.BottomLeftSide h2{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform-origin: bottom left;
+    width: max-content;
+    rotate: -90deg;
+    margin: 0;
+    margin-left: 10vw;
+    margin-bottom: 15px;
+    font-size: 56px;
+    font-family: 'Martian Mono', monospace;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rightSide{
+    width: 85vw;
+    height: 100vh;
+}
+
+.topRightSide{
+    height: 15vw;
+    border-bottom: 1px black solid;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+h1{
+    font-size: 52px;
+}
+
+.topRightSide h1{
+    margin: 0;
+    margin-right: 10px;
+}
+
+.BottomRightSide{
+    height: calc(100% - 15vw - 1px);
+}
+
+.menuAndTitle{
+    height: calc(15vw - 30px) ;
+
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px black solid;
+    padding: 15px;
+}
+
+.buttonMenu{
+    width: calc(15vw * .7);
+    height: calc(15vw * .7);
+    border: 1px solid black;
+    min-height: calc(15vw * .7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonMenu img{
+    height: 80%;
+}
+
+h2{
+    font-size: 20px;
+    font-family: 'Martian Mono', monospace;
+}
+
+.page{
+    height: calc(100% - 15vw - 1px);
 }

@@ -1,0 +1,18 @@
+.Menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    overflow: scroll;
+}
+
+button{
+    width: 100%;
+    min-height: 20vw;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+
+    font-size: 36px;
+}
