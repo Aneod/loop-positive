@@ -78,10 +78,10 @@ function App() {
       <br />
       <ol>
         <li>Bras à 30°, pas à l'horizontal</li>
-        <li>Garder les bras à largeur d'épaules</li>
+        <li>Garder les bras à largeur d'épaule</li>
         <li>Omoplates collées</li>
       </ol>
-
+      
       <br />
     </div>
   )
@@ -106,8 +106,8 @@ function App() {
     </div>
   )
 
-  const setPage = (lastPag: () => void, title: string, sideText: string, color: string, JSX: JSX.Element) => {
-    setLastPage(lastPag)
+  const setPage = (lastPage: () => void, title: string, sideText: string, color: string, JSX: JSX.Element) => {
+    setLastPage(lastPage)
     setPageTitle(title)
     setSideText(sideText)
     setPageColor(color)

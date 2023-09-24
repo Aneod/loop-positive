@@ -24,10 +24,10 @@
     align-items: center;
 }
 .titleContainer h1{
-    font-size: 52px;
+    font-size: 7.5vw;
     font-family: 'Martian Mono', monospace;
     margin: 0;
-    margin-right: 10px;
+    margin-right: 1.3vw;
 }
 
 .textContainer{
@@ -35,6 +35,7 @@
     height: calc(100vh - 15vw - 1px);
     border-right: 1px black solid;
     overflow: hidden;
+    z-index: -1;
 }
 
 .textContainer h2{
@@ -46,8 +47,8 @@
     rotate: -90deg;
     margin: 0;
     margin-left: 10vw;
-    margin-bottom: 15px;
-    font-size: 56px;
+    margin-bottom: 2vw;
+    font-size: 7vw;
     font-family: 'Martian Mono', monospace;
     font-weight: 900;
 }
@@ -58,21 +59,21 @@
 }
 
 .backer{
-    height: calc(15vw - 30px) ;
+    height: calc(15vw - 4vw) ;
 
     display: flex;
-    gap: 15px;
+    align-items: end;
+    gap: 2vw;
     border-bottom: 1px black solid;
-    padding: 15px;
+    padding: 2vw;
     position: relative;
 }
 
 .backer .buttonBacker{
-    width: calc(15vw * .7);
-    height: calc(15vw * .7);
+    width: calc(15vw - 4vw);
+    height: calc(15vw - 4vw);
     background-color: white;
     border: 1px solid black;
-    min-height: calc(15vw * .7);
 
     display: flex;
     justify-content: center;
@@ -81,7 +82,7 @@
 
 .backer .buttonMenu{
     position: absolute;
-    right: 15px;
+    right: 2vw;
 }
 
 .backer .buttonBacker img{
@@ -89,9 +90,10 @@
 }
 
 .backer h2{
-    font-size: 20px;
+    font-size: 2vw;
     font-family: 'Martian Mono', monospace;
     font-weight: 200;
+    margin: 0;
 }
 
 .content{
@@ -111,38 +113,38 @@
     border: none;
     border-bottom: 1px solid black;
 
-    font-size: 42px;
+    font-size: 5.8vw;
     font-family: 'Martian Mono', monospace;
     font-weight: 200;
 }
 
 .content h1{
-    max-width: calc(100% - 30px);
-    margin: 35px 0px 45px 0px;
-    font-size: 56px;
-    margin-left: 15px;
+    max-width: calc(100% - 4.1vw);
+    margin: 4.8vw 0px 6.2vw 0px;
+    font-size: 7.7vw;
+    margin-left: 2vw;
     font-family: 'Martian Mono', monospace;
     font-weight: 200;
 }
 
 .content p{
-    max-width: calc(100% - 30px);
-    font-size: 20px;
-    margin-left: 15px;
+    max-width: calc(100% - 4.1vw);
+    font-size: 2.7vw;
+    margin-left: 2vw;
     font-family: 'Martian Mono', monospace;
     font-weight: 200;
 }
 
 .content li{
-    max-width: calc(100% - 30px);
-    font-size: 20px;
-    margin-left: 55px;
+    max-width: calc(100% - 4.1vw);
+    font-size: 2.7vw;
+    margin-left: 10vw;
     font-family: 'Martian Mono', monospace;
     font-weight: 200;
 }
 
 .content img{
-    max-width: calc(100% - 30px);
-    margin: 25px 0px 25px 15px;
+    width: calc(100% - 4.1vw);
+    margin: 3.4vw 0px 3.4vw 2vw;
     border: black solid 1px;
 }
